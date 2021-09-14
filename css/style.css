@@ -1,0 +1,328 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+main, .book, .sound-board{
+    display: flex;
+}
+
+a:not(.indicator){
+    background-color: gold;
+    color: #8b0000;
+    padding: 0 4px;
+    text-decoration: none;
+}
+
+a:hover{
+    background-color: goldenrod;
+}
+
+*::selection{
+    background-color: #8b4600;
+    color: #fff;
+}
+
+.book__page--dark p::selection{
+    background-color: black;
+}
+
+/******* scrollbar *******/
+::-webkit-scrollbar {
+    width: 20px;
+}
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px #8b4600; 
+    border-radius: 10px;
+}  
+::-webkit-scrollbar-thumb {
+    background: hsl(0, 100%, 17%); 
+    border-radius: 20px;
+} 
+::-webkit-scrollbar-thumb:hover {
+    background: hsl(30, 100%, 17%); 
+}
+
+/******* popup area ********/
+.popup-container{
+    position: fixed;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    display: none;
+    background-color: rgba(0, 0, 0, 0.5);
+    align-items: center;
+    justify-items: center;
+    margin: auto;
+}
+.popup{
+    margin: auto;
+    border-radius: 5px;
+    box-shadow: 2px 2px 4px rgba(255, 255, 255, 0.5);
+    padding: 1.8rem;
+    background-color: #8b0000;
+    color: #fff;
+    text-transform: uppercase;
+}
+.book.smaller .popup-container{
+    width: 65%;
+}
+
+/************************ finally the book **************************/
+.book{
+    width: 100vw;
+    height: 100vh;
+    font-family: 'Alegreya', serif;
+    transition: width .4s ease-in-out;
+}
+
+.smaller{width: 65vw;}
+
+.hidden{
+    display: none;
+}
+
+/******** book pages ********/
+.book__page{
+    display: flex;
+    background-color: wheat;
+    padding: 1rem 4rem 1rem 2rem;
+    color: #000;
+    text-align: justify;
+    border: 1px solid #000;
+    flex-direction: column;
+    overflow-y: scroll;
+}
+.book__page--dark{
+    background: gray;
+    border: 1px solid #fff;
+}
+
+/********* change theme button styling**********/
+.change-theme{
+    position: fixed;
+    top: 5px;
+    left: 5px;
+    cursor: pointer;
+    border-radius: 50%;
+    background-color: #000;
+    border: 1px solid #fff;
+    height: 40px;
+    width: 40px;
+}
+.change-theme:active{
+    background: #fff;
+    border: 1px solid #000;
+}
+.change-theme--light{
+    border: 1px solid #000;
+    background: gold;
+}
+
+/************* Cover *************/
+.book__page:first-of-type, .book__page:last-of-type{
+    flex-direction: column;
+    align-items: center;
+    background-image: url(/img/book-cover.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    box-shadow: inset -5px -5px hsl(0, 100%, 17%);
+    width: 100vw;
+    height: 100vh;
+    padding: 6rem;
+    color: #fff;
+    text-align: center;
+}
+
+.book__title{
+    margin: 5rem auto;
+}
+
+.book__title em{
+    color: #000;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-decoration: underline;
+}
+
+.book__title h2{
+    color: goldenrod;
+    text-transform: uppercase;
+    font-size: 3rem;
+    margin: 2rem;
+}
+
+.book__title span{
+    font-size: 2rem;
+}
+
+.book__info{
+    font-size: 1.4rem;
+}
+
+.book__info strong{
+    font-size: 1.2em;
+    color: #000;
+    text-transform: uppercase;
+}
+
+/*** auto write ****/
+.auto-write{
+    color: goldenrod;
+}
+
+/*********** paragraphs ***********/
+.book__page p{
+    font-size: 2rem;
+    margin: 1.1rem;
+}
+.book__page p::first-letter{
+    font-size: 2.4rem;
+}
+
+/********** book.smaller features *********/
+.book.smaller .book__page p{
+    font-size: 1.8rem;
+    margin: 1rem;
+}
+.book.smaller .book__page-number{
+    right: 38%;
+}
+
+/*** book page number square ***/
+.book__page-number{
+    position: absolute;
+    bottom: 20px;
+    right: 40px;
+    width: 40px;
+    height: 40px;
+    background-color: #8b4600;
+    color: #fff;
+    text-align: center;
+    font-size: 1.8rem;
+}
+
+/*** indicators ****/
+.indicator img{
+    object-fit: cover;
+    outline: 2px ridge #8b0000;
+}
+
+/***************** menu button ******************/
+#menu-btn{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    margin-right: 4px;
+    height: max-content;
+    border: 3px inset gold;
+    background-color: #8b4600;
+    color: gold;
+    font-size: 3rem;
+    font-weight: 800;
+    cursor: pointer;
+    transition: right .4s ease;
+}
+#menu-btn:active{
+    border-style: outset;
+    background-color: hsl(30, 100%, 17%);
+    color: goldenrod;
+}
+#menu-btn.menu-btn--clicked{
+    right: 35%;
+}
+
+/***************** sound board section ********************/
+.sound-board{
+    border: 1px solid gold;
+    width: 35vw;
+    position: fixed;
+    background: #8b4600;
+    padding: 2rem;
+    right: 0;
+    height: 100vh;
+    transform: translateX(100%);
+    transition: transform .4s ease-in-out;
+}
+.sound-board--active{
+    transform: translateX(0);
+}
+
+.sound-board__container{
+    display: grid;
+    grid-template-columns: repeat(3, 96px);
+    grid-template-rows: repeat(4, 96px);
+    gap: 2rem;
+    margin: auto;
+}
+
+.sound-board__select-area{
+    grid-column: 1 / 4;
+    display: flex;
+    color: goldenrod;
+    gap: 8px;
+    text-transform: capitalize;
+    font-size: 1.3rem;
+    align-items: center;
+    justify-self: center;
+}
+
+#sound-board__select-page{
+    height: max-content;
+    border: none;
+    border-radius: 5px;
+    background: wheat;
+    padding: 4px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#sound-board__search-page-btn{
+    justify-self: flex-end;
+    padding: 4px 16px;
+    background: gold;
+    font-weight: bold;
+    border-radius: 25px;
+    border-color: #8b0000;
+    cursor: pointer;
+}
+#sound-board__search-page-btn:active{
+    background: goldenrod;
+    color: #fff;
+    border-style: ridge;
+}
+
+.sound-board__button{
+    outline: 2px ridge gold;
+    width: 96px;
+    height: 96px;
+    cursor: pointer;
+}
+
+.sound-board__button img{
+    width: inherit;
+    height: inherit;
+}
+
+/************ Back **************/
+.book__page:last-of-type h2{
+    color: #000;
+    font-size: 3rem;
+    text-decoration: underline;
+    margin: .8rem;
+}
+
+.book__page:last-of-type strong{
+    font-size: 2rem;
+}
+
+.book__page:last-of-type a{
+    margin: 2rem;
+    padding: 4px 10px;
+    border: 2px solid #000;
+    border-radius: 15px;
+    font-size: 1.6rem;
+}
