@@ -19,15 +19,15 @@ links.forEach(link => {
 
 /******** making sound board work *********/
 let sounds = [
-    {caminho:'sounds/shepherd.mp3'},
-    {caminho:'sounds/king.mp3'},
-    {caminho:'sounds/sage.mp3'},
-    {caminho:'sounds/bird.mp3'},
-    {caminho:'sounds/rebelion.mp3'},
-    {caminho:'sounds/falling.mp3'},
-    {caminho:'sounds/mountain__falling.mp3'},
-    {caminho:'sounds/pecking.mp3'},
-    {caminho:'sounds/feast.mp3'},
+    {path:'sounds/shepherd.mp3'},
+    {path:'sounds/king.mp3'},
+    {path:'sounds/sage.mp3'},
+    {path:'sounds/bird.mp3'},
+    {path:'sounds/rebelion.mp3'},
+    {path:'sounds/falling.mp3'},
+    {path:'sounds/mountain__falling.mp3'},
+    {path:'sounds/pecking.mp3'},
+    {path:'sounds/feast.mp3'},
 ];
 const sbButtons = document.querySelectorAll('.sound-board__button');
 const audio = document.querySelector('audio');
@@ -40,7 +40,7 @@ for(let i = 0; i < 9; i++){
 sbButtons.forEach(button =>{
     button.addEventListener('click', () =>{
         let sound = sounds[button.getAttribute('id')];
-        audio.setAttribute('src', sound.caminho);
+        audio.setAttribute('src', sound.path);
 
         audio.addEventListener('loadeddata', () =>{
             audio.play();

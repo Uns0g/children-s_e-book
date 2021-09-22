@@ -280,21 +280,6 @@ a:hover{
     cursor: pointer;
 }
 
-#sound-board__search-page-btn{
-    justify-self: flex-end;
-    padding: 4px 16px;
-    background: gold;
-    font-weight: bold;
-    border-radius: 25px;
-    border-color: #8b0000;
-    cursor: pointer;
-}
-#sound-board__search-page-btn:active{
-    background: goldenrod;
-    color: #fff;
-    border-style: ridge;
-}
-
 .sound-board__button{
     outline: 2px ridge gold;
     width: 96px;

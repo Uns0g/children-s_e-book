@@ -22,9 +22,8 @@ selectOptions.forEach(option =>{
 pageNumber = 0;
 
 // building selection of pages
-const searchPage = document.querySelector('#sound-board__search-page-btn');
 let selectPage = document.querySelector('#sound-board__select-page');
-searchPage.addEventListener('click', () => {
+selectPage.addEventListener('change', () => {
     pageNumber = selectPage.value;
     alterPageVisibility();
 });
