@@ -23,7 +23,7 @@ let sounds = [
     {path:'sounds/king.mp3'},
     {path:'sounds/sage.mp3'},
     {path:'sounds/bird.mp3'},
-    {path:'sounds/rebelion.mp3'},
+    {path:'sounds/rebellion.mp3'},
     {path:'sounds/falling.mp3'},
     {path:'sounds/mountain__falling.mp3'},
     {path:'sounds/pecking.mp3'},
